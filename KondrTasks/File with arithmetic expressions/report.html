@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="Submission" content="6GCYVEVGC1NVJNLX1YV2U204K"/>
+<meta name="Time" content="2021-11-28T12:51:25Z"/>
+<meta name="ID" content="Arithmetic"/>
+<meta name="User" content="ereh-niko-itaw-ycep"/>
+<meta name="Problem" content="wiley/codecheck-bjlo-1-io-105"/>
+<meta name="Elapsed" content="3835 ms"/>
+<style type="text/css">
+.header {font-weight: bold; font-size: 1.2em; }
+.item {font-weight: bold;}
+.pass {color: green;}
+.fail {color: red;}
+.note {color: blue; font-weight: bold;}
+table.file td {padding-right: 1em; background: #FFF; }
+.linenumber {color: gray;}
+.footnote {font-size: 0.7em;}
+table {font-size: 0.9em;}
+td, th { background: #EEE; margin: 0.5em; padding: 0.25em;}
+table.output td {vertical-align: top;}
+div.footnotes { border-top: 1px solid gray; padding-top: 0.5em; }
+</style>
+<title>Report</title>
+</head>
+<body>
+<p class="header call">Calling with Arguments</p>
+<div class="call">
+<table class="run">
+<tr><th>&#160;</th><th>Name</th><th>Arguments</th><th>Actual</th><th>Expected</th></tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>check</pre></td>
+<td><pre>"input1.txt"</pre></td>
+<td><pre>"[7, -1, 12]"</pre></td>
+<td><pre>"[7, -1, 12]"</pre></td>
+</tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>check</pre></td>
+<td><pre>"input2.txt"</pre></td>
+<td><pre>"I/O exception thrown"</pre></td>
+<td><pre>"I/O exception thrown"</pre></td>
+</tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>check</pre></td>
+<td><pre>"input3.txt"</pre></td>
+<td><pre>"I/O exception thrown"</pre></td>
+<td><pre>"I/O exception thrown"</pre></td>
+</tr>
+</table>
+</div>
+<p class="header studentFiles">Submitted files</p>
+<div class="studentFiles">
+<p class="caption">Arithmetic.java:</p>
+<pre class="output">import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Arithmetic
+{
+   /**
+      This class reads a file containing arithmetic expressions and returns an 
+      array list of the results. 
+      @param filename the file name
+      @return a list of results
+   */
+   public static ArrayList&lt;Integer&gt; read(String filename) throws IOException
+   {
+      ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();
+      Scanner scanner = new Scanner(new File(filename));
+      while (scanner.hasNextInt()) {
+         int tmp1 = scanner.nextInt();
+         char sign = scanner.next().charAt(0);
+         int tmp2;
+         try {
+            tmp2 = Integer.parseInt(scanner.next());
+         } catch (NumberFormatException e) {
+            throw new IOException();
+         }
+         switch(sign) {
+            case '+':
+               result.add(tmp1+tmp2);
+               break;
+            case '-':
+               result.add(tmp1-tmp2);
+               break;
+            case '*':
+               result.add(tmp1*tmp2);
+               break;
+            default:
+               throw new IOException();
+         }
+      }
+      return result;
+   }
+   
+   // This method checks your work.
+   
+   public static String check(String filename)
+   {
+      try
+      {
+         return read(filename).toString();
+      }
+      catch (IOException ex)
+      {
+         return "I/O exception thrown";
+      }
+      catch (Exception ex)
+      {
+         return ex.getMessage();
+      }
+   }
+}   
+</pre>
+</div>
+<p class="header providedFiles">Provided files</p>
+<div class="providedFiles">
+<p class="caption">input1.txt:</p>
+<pre class="output">3 + 4
+3 - 4
+3 * 4
+</pre>
+<p class="caption">input2.txt:</p>
+<pre class="output">3 + 4
+3 - four
+3 * 4
+</pre>
+<p class="caption">input3.txt:</p>
+<pre class="output">3 + 4
+3 minus 4
+3 * 4
+</pre>
+</div>
+<p class="header score">Score</p>
+<div class="score">
+<p class="score">3/3</p>
+</div>
+<div class="footnotes"><div class="footnote">2021-11-28T12:51:25Z</div>
+</div>
+</body></html>

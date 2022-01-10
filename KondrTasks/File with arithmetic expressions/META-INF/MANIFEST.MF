@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: 11.0.11 (Oracle Corporation)
+
+Name: Arithmetic.java
+SHA-256-Digest: ZbAz2gGkeHjNlysAZ6+4h7/2k9POdyoucR/1dicTJ1o=
+
+Name: report.html
+SHA-256-Digest: eom+/QOQ5qsslu4GkZKU3FQ15VoHsZck/2QpcBWhIuI=
+

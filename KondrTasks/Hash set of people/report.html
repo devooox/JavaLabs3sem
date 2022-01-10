@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="Submission" content="2MQBLW71NQ0L0APZSWOY42BO4"/>
+<meta name="Time" content="2021-11-28T14:44:29Z"/>
+<meta name="ID" content="HashSetUtil"/>
+<meta name="User" content="ereh-niko-itaw-ycep"/>
+<meta name="Problem" content="wiley/codecheck-bjlo-1-coll-109"/>
+<meta name="Elapsed" content="2922 ms"/>
+<style type="text/css">
+.header {font-weight: bold; font-size: 1.2em; }
+.item {font-weight: bold;}
+.pass {color: green;}
+.fail {color: red;}
+.note {color: blue; font-weight: bold;}
+table.file td {padding-right: 1em; background: #FFF; }
+.linenumber {color: gray;}
+.footnote {font-size: 0.7em;}
+table {font-size: 0.9em;}
+td, th { background: #EEE; margin: 0.5em; padding: 0.25em;}
+table.output td {vertical-align: top;}
+div.footnotes { border-top: 1px solid gray; padding-top: 0.5em; }
+</style>
+<title>Report</title>
+</head>
+<body>
+<p class="header call">Calling with Arguments</p>
+<div class="call">
+<table class="run">
+<tr><th>&#160;</th><th>Name</th><th>Arguments</th><th>Actual</th><th>Expected</th></tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>check</pre></td>
+<td><pre>"John", "Smith"</pre></td>
+<td><pre>true</pre></td>
+<td><pre>true</pre></td>
+</tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>check</pre></td>
+<td><pre>"Frederick", "Johnson"</pre></td>
+<td><pre>true</pre></td>
+<td><pre>true</pre></td>
+</tr>
+</table>
+</div>
+<p class="header studentFiles">Submitted files</p>
+<div class="studentFiles">
+<p class="caption">HashSetUtil.java:</p>
+<pre class="output">import java.util.Map;
+import java.util.HashSet;
+
+/**
+   This HashSetUtil class tests various usages of the HashSetUtil class. 
+   params 1 and 2 are a first name and a last name. You will construct TWO Person
+   objects, p1 and p2, each with param1 and param2 for their fn and ln respectively. 
+   You will then construct a HashSet and enter ONLY your p1 into it. Then you will  
+   search the HashSet using Person p2. This search wil FAIL. You will remedy this
+   by adding to the Person class an override for the equals and hashcode methods so that 
+   the search is successful and the return value is true.
+*/
+public class HashSetUtil
+{
+
+ public static boolean check(String s1, String s2)
+ {
+      Person p1 = new Person(s1,s2);
+      Person p2 = new Person(s1,s2);
+
+	  HashSet&lt;Person&gt; people = new HashSet&lt;Person&gt;();
+	  people.add(p1);
+
+      return processSet(people, p2);
+ }
+
+
+ public static boolean processSet(HashSet&lt;Person&gt; people, Person person)
+ {
+    return people.contains(person);
+ }
+
+
+/* Inner class Person simply has two name fields fn, first name and ln, last name, 
+   a constructor and the toString  method override
+*/
+static class Person 
+{
+   private String fn;
+   private String ln;
+
+   public Person(String fn, String ln) {
+	   this.fn = fn;
+	   this.ln = ln; 
+   }
+
+   public String toString()
+   {
+      return ln + ", " + fn;
+   }
+
+	// TODO: wite a hashcode override method
+   public int hashCode()
+   {
+      return fn.length() + ln.length();
+   }
+
+	// TODO: wite an equals override method
+   public boolean equals(Object object)
+   {
+      return object.toString().equals(toString());
+   }
+}
+}
+</pre>
+</div>
+<p class="header score">Score</p>
+<div class="score">
+<p class="score">2/2</p>
+</div>
+<div class="footnotes"><div class="footnote">2021-11-28T14:44:29Z</div>
+</div>
+</body></html>

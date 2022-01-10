@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="Submission" content="5AGLATM4J7I4ECGTU9D5FEWXX"/>
+<meta name="Time" content="2021-11-28T13:32:35Z"/>
+<meta name="ID" content="SetUtil"/>
+<meta name="User" content="ereh-niko-itaw-ycep"/>
+<meta name="Problem" content="wiley/codecheck-bjlo-1-coll-107"/>
+<meta name="Elapsed" content="4506 ms"/>
+<style type="text/css">
+.header {font-weight: bold; font-size: 1.2em; }
+.item {font-weight: bold;}
+.pass {color: green;}
+.fail {color: red;}
+.note {color: blue; font-weight: bold;}
+table.file td {padding-right: 1em; background: #FFF; }
+.linenumber {color: gray;}
+.footnote {font-size: 0.7em;}
+table {font-size: 0.9em;}
+td, th { background: #EEE; margin: 0.5em; padding: 0.25em;}
+table.output td {vertical-align: top;}
+div.footnotes { border-top: 1px solid gray; padding-top: 0.5em; }
+</style>
+<title>Report</title>
+</head>
+<body>
+<p class="header call">Calling with Arguments</p>
+<div class="call">
+<table class="run">
+<tr><th>&#160;</th><th>Name</th><th>Arguments</th><th>Actual</th><th>Expected</th></tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>check</pre></td>
+<td><pre>"Texas"</pre></td>
+<td><pre>"Txs"</pre></td>
+<td><pre>"Txs"</pre></td>
+</tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>check</pre></td>
+<td><pre>"Connecticut"</pre></td>
+<td><pre>"Cnnctct"</pre></td>
+<td><pre>"Cnnctct"</pre></td>
+</tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>check</pre></td>
+<td><pre>"California"</pre></td>
+<td><pre>"Clfrn"</pre></td>
+<td><pre>"Clfrn"</pre></td>
+</tr>
+</table>
+</div>
+<p class="header studentFiles">Submitted files</p>
+<div class="studentFiles">
+<p class="caption">SetUtil.java:</p>
+<pre class="output">import java.util.Set;
+import java.util.HashSet;
+
+/**
+   This SetUtil class tests various usages of the Set class. 
+   param1 is a string. You will create a set with all vowels, a,e,i,o,u. Then you will return 
+   string with all vowels removed. Vowels may be lower or upper case.
+*/
+public class SetUtil
+{
+
+ public static String check(String str)
+ {
+      HashSet&lt;Character&gt; stack = new HashSet&lt;Character&gt;();
+      stack.add('a');
+      stack.add('e');
+      stack.add('i');
+      stack.add('o');
+      stack.add('u');
+      stack.add('y');
+	  return processSet(stack, str);
+ }
+
+
+ public static String processSet(Set&lt;Character&gt; set, String str)
+ {
+     StringBuffer sb = new StringBuffer();
+
+	 for (int i = 0; i &lt; str.length(); i++)
+     {
+      if (!set.contains(str.charAt(i))) {
+         sb.append(str.charAt(i));
+      }
+	 }
+     
+     return sb.toString();
+ }
+}
+</pre>
+</div>
+<p class="header score">Score</p>
+<div class="score">
+<p class="score">3/3</p>
+</div>
+<div class="footnotes"><div class="footnote">2021-11-28T13:32:35Z</div>
+</div>
+</body></html>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="Submission" content="DRDJ5ITJNXFFUOG3MD7KVNK1M"/>
+<meta name="Time" content="2021-11-28T13:09:09Z"/>
+<meta name="ID" content="Arithmetic"/>
+<meta name="User" content="ereh-niko-itaw-ycep"/>
+<meta name="Problem" content="wiley/codecheck-bjlo-1-io-106"/>
+<meta name="Elapsed" content="3805 ms"/>
+<style type="text/css">
+.header {font-weight: bold; font-size: 1.2em; }
+.item {font-weight: bold;}
+.pass {color: green;}
+.fail {color: red;}
+.note {color: blue; font-weight: bold;}
+table.file td {padding-right: 1em; background: #FFF; }
+.linenumber {color: gray;}
+.footnote {font-size: 0.7em;}
+table {font-size: 0.9em;}
+td, th { background: #EEE; margin: 0.5em; padding: 0.25em;}
+table.output td {vertical-align: top;}
+div.footnotes { border-top: 1px solid gray; padding-top: 0.5em; }
+</style>
+<title>Report</title>
+</head>
+<body>
+<p class="header call">Calling with Arguments</p>
+<div class="call">
+<table class="run">
+<tr><th>&#160;</th><th>Name</th><th>Arguments</th><th>Actual</th><th>Expected</th></tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>check</pre></td>
+<td><pre>"3", "+", "4"</pre></td>
+<td><pre>true</pre></td>
+<td><pre>true</pre></td>
+</tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>check</pre></td>
+<td><pre>"3", "+", "four"</pre></td>
+<td><pre>false</pre></td>
+<td><pre>false</pre></td>
+</tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>check</pre></td>
+<td><pre>"3", "plus", "4"</pre></td>
+<td><pre>false</pre></td>
+<td><pre>false</pre></td>
+</tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>check</pre></td>
+<td><pre>"3", "/", "0"</pre></td>
+<td><pre>false</pre></td>
+<td><pre>false</pre></td>
+</tr>
+</table>
+</div>
+<p class="header studentFiles">Submitted files</p>
+<div class="studentFiles">
+<p class="caption">Arithmetic.java:</p>
+<pre class="output">public class Arithmetic
+{
+   /**
+      Checks whether an arithmetic expression is valid.
+      @param value1 a string that should contain an integer
+      @param operator a string that should contan an operator + - * or /
+      @param value2 a string that should contain an integer
+      @return true if all parameters are correct and the resulting expression
+      can be evaluated without an exception      
+   */
+   public static boolean check(String value1, String operator, String value2)
+   {
+      int num2;
+      try{
+         Integer.parseInt(value1);
+         num2 = Integer.parseInt(value2);
+      } catch (NumberFormatException e){
+         return false;
+      }
+      if (operator == "+" || operator == "-" || operator == "*") {
+         return true;
+      } else {
+         if (operator == "/") {
+            if (num2 == 0) {
+               return false;
+            } else {
+               return true;
+            }
+         }else  {
+            return false;
+         }
+      }
+   }
+}
+</pre>
+</div>
+<p class="header score">Score</p>
+<div class="score">
+<p class="score">4/4</p>
+</div>
+<div class="footnotes"><div class="footnote">2021-11-28T13:09:09Z</div>
+</div>
+</body></html>
